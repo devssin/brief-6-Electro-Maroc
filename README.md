@@ -1,9 +1,9 @@
 # brief-6-Electro-Maroc
 
 ## UseCase Diagram 
-![use case]("./uml/usecase.jpeg")
+![use case]("./uml/usecase.jpg")
 
 
 ## Class Diagram
-![use case]("./uml/class.jpeg")
+![use case]("./uml/class.jpg")
 

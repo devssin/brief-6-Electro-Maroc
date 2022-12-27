@@ -31,7 +31,7 @@
         <span class="text-xs leading-3">CARD</span>
         <span class="absolute bg-primary text-white top-0 -right-3 w-5 h-5 rounded-full text-xs flex justify-center items-center">8</span>
       </a>
-      <a href="" class="text-center text-gray-400 hover:text-primary transistion relative">
+      <a href="<?= URLROOT?>/clients/account" class="text-center text-gray-400 hover:text-primary transistion relative">
         <div class="text-xl">
           <i class="far fa-user"></i>
 
@@ -76,7 +76,10 @@
         <a href="" class=" text-white hover:text-gray-400 transition">Contact us</a>
         
       </div>
-      <a href="" class=" text-white hover:text-gray-400 transition">Login/Register</a>
+      <div class="flex items-center space-x-6">
+      <a href="<?= URLROOT ?>/clients/login" class=" text-white hover:text-gray-400 transition">Login</a>
+      <a href="<?= URLROOT ?>/clients/register" class=" text-white hover:text-gray-400 transition">Register</a>
+      </div>
 
     </div>
   </div>

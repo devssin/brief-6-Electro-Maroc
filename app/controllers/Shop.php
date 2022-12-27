@@ -10,4 +10,8 @@ class Shop extends Controller {
         $this->view('shop/index');
 
     }
+
+    public function single(){
+        $this->view('shop/single');
+    }
 }

@@ -103,7 +103,7 @@
 </div>
 
 <!-- New Arrivals Section -->
-<div class="containner py-16">
+<div class="containner py-16 bg-gray-100">
     <h2 class="text-3xl text-center font-medium text-gray-800 uppercase mb-6">Top New Arrivals</h2>
     <!-- Products Grid   -->
     <div class="grid md:grid-cols-4 gap-6">

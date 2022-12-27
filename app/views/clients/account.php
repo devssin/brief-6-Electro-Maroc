@@ -13,11 +13,11 @@
 <!-- linktree end-->
 
 <!-- Account wrapper -->
-<div class="containner grid grid-cols-12 items-start pt-6 pb-16 gap-6 ">
+<div class="containner grid grid-cols-12 items-start pt-6 pb-16 gap-6 bg-gray-100">
     <!-- Side Bar -->
     <div class="col-span-3">
         <!-- Account Profile  -->
-        <div class="flex items-center gap-4 px-4 py-3 shadow">
+        <div class="flex items-center gap-4 px-4 py-3 shadow bg-white rounded-lg">
             <div class="flex-shrink-0">
                 <img src="<?=URLROOT?>/public/img/avatar.png" alt="avatar" class="w-14 h-14 rounded-full border border-primary">
             </div>
@@ -27,6 +27,10 @@
             </div>
         </div>
         <!-- Account Profile End -->
+
+        <!-- Profile Links -->
+        <div class=""></div>
+        <!-- Profile Links End -->
     </div>
     <!-- Side Bar End -->
 

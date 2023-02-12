@@ -12,9 +12,9 @@ INSERT INTO
     admin
 VALUES
     (
-        'admin',
+        'nissay',
         'admin@gmail.com',
-        '$2y$10$NvWves86xxb3LylAxZ2AD.fE6u71bHCt8EfJQH.b53vEnzIVrKz7G'
+        '$2y$10$XX5EDjJ7PCVyaX7HIwPAJ.cFCykThrVidOCoji.NJ86uVxidLR/Ea'
     );
 
 CREATE Table IF NOT EXISTS client (
@@ -35,6 +35,14 @@ CREATE TABLE IF NOT EXISTS category (
     description VARCHAR(500)
 );
 
+
+INSERT INTO category (name, description) VALUES ('Computers', 'This is computers category') ;
+INSERT INTO category (name, description) VALUES ('Tablets', 'This is tablets category') ;
+INSERT INTO category (name, description) VALUES ('Phone', 'This is computers category') ;
+INSERT INTO category (name, description) VALUES ('Accessoirs', 'This is Accessoirs category'); 
+INSERT INTO category (name, description) VALUES ('Cameras', 'This is cameras category') ;
+INSERT INTO category (name, description) VALUES ('Consoles', 'This is Consoles category') ;
+
 CREATE TABLE IF NOT EXISTS product(
     id int PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255),
@@ -46,6 +54,7 @@ CREATE TABLE IF NOT EXISTS product(
     id_cat int ,
     FOREIGN KEY (id_cat) REFERENCES category(id) ON DELETE SET NULL
 );
+ALTER table product add COLUMN qte INT AFTER offrePrice;
 
 CREATE TABLE IF NOT EXISTS commande(
     id_client INT,
@@ -53,7 +62,7 @@ CREATE TABLE IF NOT EXISTS commande(
     creation_date  DATETIME DEFAULT CURRENT_TIMESTAMP,
     sent_date  DATETIME DEFAULT CURRENT_TIMESTAMP,
     delivery_date  DATETIME DEFAULT CURRENT_TIMESTAMP,
-    state VARCHAR(20) 
+    state ENUM('On Hold', 'Confirmed', 'Delivered', 'Canceled'),
     Foreign Key (id_client) REFERENCES client(id) ON DELETE SET NULL,
     Foreign Key (id_product) REFERENCES product(id) ON DELETE SET NULL
 );

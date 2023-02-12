@@ -1,4 +1,5 @@
 <?php require APPROOT . "/views/inc/header.php" ?>
+<?php require  APPROOT . '/views/inc/navbar.php' ?>
 
 <!-- linktree -->
 <div class="containner py-4 flex items-center gap-3">
@@ -19,10 +20,10 @@
 
 <div class="containner grid md:grid-cols-2 gap-6 py-20">
     <div class="">
-        <img src="<?= URLROOT ?>/public/img/iphone-14.jfif" alt="" style="width: 400px; height:400px;" class="border-primary">
+        <img src="<?= $data->img ?>" alt="" style="width: 400px; height:400px;" class="border-primary">
     </div>
     <div>
-        <h3 class="text-3xl text-gray-700 font-semibold uppercase mb-2">IPhone 14 pro max</h3>
+        <h3 class="text-3xl text-gray-700 font-semibold uppercase mb-2"><?=$data->name?></h3>
         <div class="flex items-center mb-4">
             <div class="flex gap-1 items-center text-sm text-yellow-400">
                 <i class="fas fa-star"></i>
@@ -40,21 +41,21 @@
         </div>
         <div class="flex items-center gap-4 mb-3">
             <h2 class="text-md font-medium text-gray-800">Category :</h2>
-            <p class="text-sm text-gray-600 ">Phones</p>
+            <p class="text-sm text-gray-600 "><?=$data->category?></p>
         </div>
         <div class="flex items-center gap-4 mb-3">
             <h2 class="text-md font-medium text-gray-800">Code Bare :</h2>
-            <p class="text-sm text-gray-600 ">988923</p>
+            <p class="text-sm text-gray-600 "><?=$data->code_bar?></p>
         </div>
         <div class="flex items-center gap-4 mb-3">
 
             <h2 class="text-md font-medium text-gray-800">Price :</h2>
 
-            <p class="text-md font-semibold text-primary">10000 DH</p>
-            <p class="text-sm text-gray-600  line-through">12000 DH</p>
+            <p class="text-md font-semibold text-primary"><?=$data->offrePrice?> DH</p>
+            <p class="text-sm text-gray-600  line-through"><?=$data->finalPrice?> DH</p>
         </div>
         <p class="text-sm text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam repellendus deserunt mollitia quibusdam tenetur molestias consectetur. Perspiciatis impedit dicta necessitatibus.
+            <?=$data->description?>
         </p>
 
         <div class="pt-4">

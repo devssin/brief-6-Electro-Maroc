@@ -1,5 +1,5 @@
 <?php require APPROOT . "/views/inc/header.php"; ?>
-
+<?php require  APPROOT . '/views/inc/navbar.php' ?>
 <!-- Banner Section -->
 <div class="bg-cover bg-no-repeat bg-center py-36" style='background-image:url("<?php echo URLROOT ?>/public/img/banner.png");'>
     <div class="containner">

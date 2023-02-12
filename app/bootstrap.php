@@ -12,7 +12,11 @@ require_once "config/config.php";
 
 spl_autoload_register(function($className){
     require_once "libraries/$className.php";
-})
+});
+
+require "helpers/raqndom_str_helper.php";
+require "helpers/session_helper.php";
+require "helpers/url_helper.php";
 
 
 ?>

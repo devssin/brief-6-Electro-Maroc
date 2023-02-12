@@ -3,7 +3,7 @@
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'electro-maroc');
+define('DB_NAME', 'electro_maroc');
 define("PORT", "3307");
 
 // App Root

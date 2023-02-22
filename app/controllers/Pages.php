@@ -1,14 +1,21 @@
 <?php
 
 class Pages extends Controller {
+    private $categoryModel;
+    private $productModel;
     public function __construct()
     {
-        
+        $this->categoryModel = $this->model('Category');
+        $this->productModel = $this->model('Product');
     }
 
     public function index(){
+        
+        $categories = $this->categoryModel->getCategories();
+        $products = array_slice($this->productModel->getProducts(), 0, 8);
         $data = [
-            'title' => 'Welcome',
+            'categories' => $categories,
+            'products' => $products
         ];
         $this->view("pages/index", $data);
     }

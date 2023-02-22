@@ -46,9 +46,17 @@
                 </thead>
                 <tbody>
                     <?php foreach ($data['products'] as $product) : ?>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                <?= substr($product->name, 0, 20) ?> ...
+                        <tr class=" 
+                            <?= $product->qte < 10 ? 'bg-red-100 dark:bg-red-700' : 'bg-white hover:bg-gray-50' ?>
+                        border-b ">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" title="<?= $product->name?>">
+                                <?php 
+                                    if($product->qte < 10):
+                                ?>
+                                    <span class="text-red-500 text-lg mr-2" title="Stock is Low"><i class="fas fa-exclamation-triangle"></i></span>
+                                <?php endif; ?>
+                                    
+                                <?= substr($product->name, 0, 10) ?> ...
                             </th>
                             <td class="px-6 py-4">
                                 <img src="<?= $product->img ?>" alt="" class="w-10 h-10">
@@ -65,15 +73,17 @@
                             <td class="px-6 py-4">
                                 <?=$product->offrePrice?> DH
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 <?= $product->qte < 10 ? 'text-red-500' : '' ?>">
                                 <?=$product->qte?>
                             </td>
                             <td class="px-6 py-4">
                                 <?=$product->category?>
                             </td>
                             <td class="px-6 py-4 flex justify-center space-x-3">
-                                <a href="<?=URLROOT?>/products/edit/<?=$product->id?>" class="text-blue-600 text-lg hover:text-blue-800 transition duration-200"><i class="far fa-edit"></i></a>
-                                <a href="<?=URLROOT?>/products/delete/<?=$product->id?>" class="text-red-500 text-lg hover:text-red-800 transition duration-200"><i class="fas fa-trash"></i></a>
+                                <a href="<?=URLROOT?>/products/edit/<?=$product->id?>" class="text-blue-600 text-lg hover:text-blue-800 transition duration-200" title="Edit"><i class="far fa-edit"></i></a>
+                                <a href="<?=URLROOT?>/products/delete/<?=$product->id?>" class="text-red-500 text-lg hover:text-red-800 transition duration-200" title="Delete"><i class="fas fa-trash"></i></a>
+                                <a href="<?=URLROOT?>/products/hide/<?=$product->id?>" class="text-yellow-500 text-lg hover:text-yellow-800 transition duration-200" title="hide"> <i class="fas fa-eye-slash"></i></a>
+
                             </td>
 
                            

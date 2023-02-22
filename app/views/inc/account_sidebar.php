@@ -62,7 +62,7 @@
             </a>
         </div>
         <div class="space-y-1 pl-8">
-            <a href="" class=" mt-4 mb-2 relative text-sm hover:text-primary block font-medium uppercase transistion">
+            <a href="<?=URLROOT?>/clients/logout" class=" mt-4 mb-2 relative text-sm hover:text-primary block font-medium uppercase transistion">
                 <span class="absolute -left-8 top-0">
                     <i class="fas fa-sign-out"></i>
 

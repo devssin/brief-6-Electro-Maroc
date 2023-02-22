@@ -157,11 +157,18 @@ class Clients extends Controller {
 
         $_SESSION['client_session'] = $user->id;
         $_SESSION['client_username'] = $user->username;
-        redirect('clients/account');
+        redirect('accounts');
     }
 
-    public function account(){
-        $client = $this->clientModel->findUserByUsername($_SESSION['client_username']);
-        $this->view('clients/account');
+    public function logout()
+    {
+        unset($_SESSION['client_session']);
+        unset($_SESSION['client_username']);
+        session_destroy();
+        redirect('clients/login');
     }
+
+    // client ajax
+
+   
 }

@@ -8,6 +8,9 @@
         <div class="my-3">
             <?php flash('login_errors'); ?>
         </div>
+        <div class="my-3">
+            <?php flash('not_logged'); ?>
+        </div>
         <h2 class="text-center text-2xl font-semibold text-gray-700 mb-2">Login</h2>
         <p class="text-sm text-gray-500 text-center">Login if you are one of our clients</p>
 

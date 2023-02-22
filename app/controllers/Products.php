@@ -13,6 +13,8 @@ class Products extends Controller{
         $this->categoryModel = $this->model('category');
     }
 
+
+    // Add product from controller
     public function add(){
 
         $categories = $this->categoryModel->getCategories();
@@ -64,15 +66,15 @@ class Products extends Controller{
             }
 
             if(empty($data['errors'])){
+                // upload the image and get the image path
                 $data['image'] = URLROOT ."/public/". $this->uploadImg();
-                // echo '<pre>';
-                // print_r($data);
-                // echo '</pre>';
-                // exit;
+
+                // check if the product is added
                 if($this->productModel->addProduct($data)){
                     flash('product_success', 'Product added successfully', 'p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-300');
                     redirect('dashboard/products');
                 }else{
+                    // sho an error message if the product is not added to the database
                     die('Something went wrong');
                 }
             }else{
@@ -81,6 +83,7 @@ class Products extends Controller{
             }
 
         }else{ 
+            // Initialize data and load the view
             $data = [
                 'name' => '',
                 'code_bar' => '',
@@ -205,6 +208,16 @@ class Products extends Controller{
         }
     }
 
+
+    public function hide($id){
+        if($this->productModel->hideProduct($id)){
+            flash("product_success", "Product hidden successfully");
+            redirect('dashboard/products');
+        }else{
+            die("somthing went wrong");
+        }
+    }
+
     public function uploadImg()
     {
         $image = $_FILES['image'];
@@ -214,6 +227,9 @@ class Products extends Controller{
         return $imagePath;
 
     }
+
+
+
     
 
 }

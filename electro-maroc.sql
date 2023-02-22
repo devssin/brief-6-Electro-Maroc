@@ -56,13 +56,32 @@ CREATE TABLE IF NOT EXISTS product(
 );
 ALTER table product add COLUMN qte INT AFTER offrePrice;
 
-CREATE TABLE IF NOT EXISTS commande(
+CREATE TABLE cart (
     id_client INT,
     id_product INT,
+    qte INT,
+    FOREIGN KEY (id_client) REFERENCES client(id) ON DELETE SET NULL,
+    FOREIGN KEY (id_product) REFERENCES product(id) ON DELETE SET NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS commande(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_client INT,
     creation_date  DATETIME DEFAULT CURRENT_TIMESTAMP,
-    sent_date  DATETIME DEFAULT CURRENT_TIMESTAMP,
-    delivery_date  DATETIME DEFAULT CURRENT_TIMESTAMP,
+    sent_date  DATETIME  ,
+    delivery_date  DATETIME  ,
     state ENUM('On Hold', 'Confirmed', 'Delivered', 'Canceled'),
-    Foreign Key (id_client) REFERENCES client(id) ON DELETE SET NULL,
+    Foreign Key (id_client) REFERENCES client(id) ON DELETE SET NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS product_commande(
+    id_commande INT,
+    id_product INT,
+    qte INT,
+    Foreign Key (id_commande) REFERENCES commande(id) ON DELETE SET NULL,
     Foreign Key (id_product) REFERENCES product(id) ON DELETE SET NULL
 );
+
+

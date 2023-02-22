@@ -84,6 +84,26 @@ class Database{
         return $this->stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function getLastInsertedId()
+    {
+        return $this->dbh->lastInsertId();
+    }
+
+    public function beginTransaction()
+    {
+        return $this->dbh->beginTransaction();
+    
+    }
+
+    public function commit()
+    {
+        return $this->dbh->commit();
+    }
+
+    public function rollback()
+    {
+        return $this->dbh->rollBack();
+    }
 
     // Get single record
     public function single()
@@ -97,4 +117,6 @@ class Database{
     {
         return $this->stmt->rowCount();
     }
+
+
 }

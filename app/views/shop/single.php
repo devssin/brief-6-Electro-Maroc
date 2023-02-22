@@ -67,14 +67,11 @@
             </div>
         </div>
         <div class="pt-4 flex items-center gap-6">
-            <a href="" class="text-center text-white bg-primary border border-primary px-5 py-3 hover:bg-transparent hover:border-primary hover:text-primary transition rounded-b">
+            <button onclick="addToCart(<?=$data->id?>)" class="text-center text-white bg-primary border border-primary px-5 py-3 hover:bg-transparent hover:border-primary hover:text-primary transition rounded-b">
                 <i class="fas fa-shopping-bag mr-2"></i>
                 Add to cart
-            </a>
-            <a href="" class="text-center bg-transparent text-gray-500 border border-gray-500 px-5 py-3 hover:border-primary hover:text-primary   transition rounded-b">
-                <i class="far fa-heart mr-2"></i>
-                Add to wishlist
-            </a>
+            </button>
+            
         </div>
     </div>
 </div>
@@ -83,3 +80,4 @@
 <!-- linktree end-->
 
 <?php require APPROOT . "/views/inc/footer.php" ?>
+<?php require APPROOT . "/views/inc/scripts.php" ?>

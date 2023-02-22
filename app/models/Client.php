@@ -71,4 +71,27 @@ class Client {
         return false;
     }
 
+    public function findUserById($id)
+    {
+        $this->db->query('SELECT * FROM client WHERE id = :id');
+        $this->db->bind('id', $id);
+
+        $row = $this->db->single();
+        return $row;
+    }
+
+    public function updateInfos($data){
+        $this->db->query("UPDATE client SET fullName = :fullName, tel = :tel, adress = :adress, ville = :ville , code_postal = :code_postal WHERE id = :id");
+        $this->db->bind('fullName', $data['fullName']);
+        $this->db->bind('tel', $data['tel']);
+        $this->db->bind('adress', $data['adress']);
+        $this->db->bind('ville', $data['ville']);
+        $this->db->bind('code_postal', $data['code_postal']);
+        $this->db->bind('id', $data['id']);
+        if($this->db->execute()){
+            return true;
+        }
+        return false;
+    }
+
 }

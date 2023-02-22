@@ -11,7 +11,7 @@
                 <i class="fas fa-tags mr-2"></i> Categories
             </h6>
         </a>
-        <a href="" class="block w-full hover:bg-gray-900 py-3  text-white hover:text-primary transition duration-100">
+        <a href="<?=URLROOT?>/dashboard/orders" class="block w-full hover:bg-gray-900 py-3  text-white hover:text-primary transition duration-100">
             <h6 class="text-md font-medium">
                 <i class="fas fa-money-check mr-2"></i> Orders
             </h6>

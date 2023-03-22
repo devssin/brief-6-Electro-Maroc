@@ -119,4 +119,11 @@ class Order {
         }
     }
 
+    public function findCommandeById($id){
+        $this->db->query("SELECT commande.*, client.fullName as 'fullName',client.email as 'email', client.adress as 'adress' , client.ville as 'city' , client.tel  as 'phone', client.code_postal as 'code_postal' FROM commande join client on commande.id_client = client.id  WHERE commande.id = :id");
+        $this->db->bind(':id', $id);
+        $this->db->execute();
+        return $this->db->single();
+    }
+
 }

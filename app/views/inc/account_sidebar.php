@@ -14,7 +14,7 @@
     <!-- Profile Links -->
     <div class="mt-4 bg-white p-4 rounded-lg shadow-lg divide-y divide-gray-300 space-y-4 text-gray-800">
         <div class="space-y-1 pl-8">
-            <a href="" class="relative text-primary block font-medium uppercase transistion">
+            <a href="<?=URLROOT?>/accounts/editInfos/<?=$_SESSION['client_session']?>" class="relative text-primary block font-medium uppercase transistion">
                 <span class="absolute -left-8 top-0">
                     <i class="far fa-address-card"></i>
 
@@ -33,7 +33,7 @@
 
         </div>
         <div class="space-y-1 pl-8">
-            <a href="" class="relative text-primary block font-medium uppercase transistion">
+            <a href="<?=URLROOT?>/accounts/orders" class="relative text-primary block font-medium uppercase transistion">
                 <span class="absolute -left-8 top-0">
                     <i class="far fa-address-card"></i>
 

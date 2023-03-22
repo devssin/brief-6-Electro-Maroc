@@ -130,4 +130,13 @@ class Product{
         return false;
     }
 
+    public function unhideProduct($id){
+        $this->db->query("UPDATE product SET hidden = 0 WHERE id = :id");
+        $this->db->bind(':id', $id);
+        if($this->db->execute()){
+            return true;
+        }
+        return false;
+    }
+
 }

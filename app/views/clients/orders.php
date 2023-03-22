@@ -24,6 +24,7 @@
         <div class="flex justify-between items-center">
             <h2 class="my-4 text-lg font-black">My Orders</h2>
             <?php flash('order_success');?>
+            <?php flash('order_errors');?>
         </div>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -96,6 +97,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <a href="<?= URLROOT ?>/accounts/cancelOrder/<?= $order->id ?>" class="font-medium text-red-600 hover:text-red-800 transition duration-150" title="Cancel"><i class="fas fa-ban"></i></a>
+                                <a href="<?= URLROOT ?>/orders/bill/<?= $order->id ?>" class="font-medium text-primary hover:text-blue-700 transition duration-150" title="See Bill"><i class="fas fa-file-invoice ml-3"></i></a>
                             </td>
                         </tr>
 

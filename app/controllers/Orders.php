@@ -108,6 +108,8 @@ class Orders extends Controller
     }
 
     public function cancelOrder($id_commande){
+
+        
         if($this->commandeModel->cancelOrder($id_commande)){
             flash('order_success', 'Order canceled successfully', "p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-300");
             redirect('dashboard/orders');
@@ -115,6 +117,20 @@ class Orders extends Controller
             flash('order_errors', 'Somthing went wrong', "p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-300");
             redirect('dashboard/orders');
         }
+    }
+
+    public function bill($id_commande){
+        $commande = $this->commandeModel->findCommandeById($id_commande);
+        $products = $this->commandeModel->getProductsByCommande($id_commande);
+        $totalPrice = $this->commandeModel->getTotalPriceByCommandeId($id_commande);
+        
+        $data = [
+            'commande' => $commande, 
+            'products' => $products,
+            'totalPrice' => $totalPrice
+        ];
+
+        $this->view('pages/bill', $data);
     }
 
     

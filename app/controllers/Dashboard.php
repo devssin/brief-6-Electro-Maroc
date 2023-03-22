@@ -36,6 +36,10 @@ class Dashboard extends Controller{
         $this->view('dashboard/categories', $data);
     }
 
+    public function clients(){
+        
+    }
+
     public function Orders(){
         $orders = $this->orderModel->getOrders();
         foreach ($orders as $order) {
@@ -60,6 +64,8 @@ class Dashboard extends Controller{
         
         echo json_encode($client);
     }
+
+
 
 
    

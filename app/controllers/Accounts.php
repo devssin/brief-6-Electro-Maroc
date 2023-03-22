@@ -14,8 +14,6 @@ class Accounts extends Controller
         $this->clientModel = $this->model('Client');
         $this->cartModel = $this->model('Cart');
         $this->orderModel = $this->model('Order');
-
-
     }
     public function index()
     {
@@ -48,7 +46,6 @@ class Accounts extends Controller
                 flash('infos_errors', 'Somthing went wrong', "p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-300");
                 redirect('accounts');
             }
-
         } else {
 
             $client = $this->clientModel->findUserById($_SESSION['client_session']);
@@ -68,7 +65,8 @@ class Accounts extends Controller
         }
     }
 
-    public function cart(){
+    public function cart()
+    {
 
         $cart = $this->cartModel->getCartByClientId($_SESSION['client_session']);
         $total = $this->cartModel->getTotalByClientId($_SESSION['client_session']);
@@ -76,16 +74,17 @@ class Accounts extends Controller
             'cart_items' => $cart,
             'total' => $total,
         ];
-        
+
         $this->view('clients/cart', $data);
     }
 
-    public function orders(){
+    public function orders()
+    {
 
         $orders = $this->orderModel->getOrdersByClientId($_SESSION['client_session']);
         foreach ($orders as $order) {
             $order->totalProducts = $this->orderModel->getTotalProductByCommandeId($order->id);
-            
+
             $order->totalPrice = $this->orderModel->getTotalPriceByCommandeId($order->id);
         }
         $data = [
@@ -95,12 +94,19 @@ class Accounts extends Controller
     }
 
 
-    public function cancelOrder($id_commande){
-        if($this->orderModel->cancelOrder($id_commande)){
-            flash('order_success', 'Order canceled successfully', "p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-300");
-            redirect('accounts/orders');
-        }else{
-            flash('order_errors', 'Somthing went wrong', "p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-300");
+    public function cancelOrder($id_commande)
+    {
+        $commande = $this->orderModel->findCommandeById($id_commande);
+        if ($commande->state == "On Hold") {
+            if ($this->orderModel->cancelOrder($id_commande)) {
+                flash('order_success', 'Order canceled successfully', "p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-300");
+                redirect('accounts/orders');
+            } else {
+                flash('order_errors', 'Somthing went wrong', "p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-300");
+                redirect('accounts/orders');
+            }
+        } else {
+            flash('order_errors', 'You cant update order status ', "p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-300");
             redirect('accounts/orders');
         }
     }

@@ -217,7 +217,14 @@ class Products extends Controller{
             die("somthing went wrong");
         }
     }
-
+    public function unhide($id){
+        if($this->productModel->unhideProduct($id)){
+            flash("product_success", "Product unhidden successfully");
+            redirect('dashboard/products');
+        }else{
+            die("somthing went wrong");
+        }
+    }
     public function uploadImg()
     {
         $image = $_FILES['image'];

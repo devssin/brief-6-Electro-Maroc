@@ -44,6 +44,12 @@ class Client {
 
     }
 
+    public function all(){
+        $this->db->query('SELECT * FROM client');
+        $this->db->execute();
+        return $this->db->resultSet();
+    }
+
     // Check if user email is already taken 
     public function findUserByEmail($email)
     {
